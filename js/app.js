@@ -26,18 +26,26 @@ $(document).ready(function () {
 
     //ajax
 
-    $.ajax({
-        url: "page-1.json",
-        type: "GET"
-    }).then(function (data) {
-        data.forEach(item => {
-            let photo = new Gallery(item)
-            photo.render()
-            photo.renderSelct()
+    function pageNum (){
 
-        });
+        $.ajax({
+            url: "page-1.json",
+            type: "GET"
+        }).then(function (data) {
+            data.forEach(item => {
+                let photo = new Gallery(item)
+                photo.render()
+                photo.renderSelct()
+    
+            });
+    
+        })
 
-    })
+
+    }
+    
+
+   
 
     // render img
     Gallery.prototype.render = function () {
@@ -82,9 +90,7 @@ $(document).ready(function () {
                 dataClone.find('img').attr("src", item.image_url);
                 dataClone.find('p').text(item.desc);
                 dataClone.css({ "display": "block" })
-
                 main.append(dataClone);
-
 
 
 
@@ -114,6 +120,6 @@ $(document).ready(function () {
 
 
 
-    
+
 
 

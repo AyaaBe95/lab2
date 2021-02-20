@@ -5,10 +5,8 @@ $(document).ready(function () {
     var allImages = [];
     let filter = $('#filter')
     let main = $('main')
-    let photoTemplate = $('#photo-template')
-
-
-
+    let photoTemplate = $('.photo-template')
+    photoTemplate.css({ "display": "none" })
 
 
 
@@ -49,10 +47,8 @@ $(document).ready(function () {
         dataClone.find('h2').text(this.title);
         dataClone.find('img').attr("src", this.image_url);
         dataClone.find('p').text(this.desc);
-        // dataClone.css({ "display": "block" })
-
-
-        $('main').append(dataClone);
+        dataClone.css({ "display": "block" })
+        main.append(dataClone);
 
 
     }
@@ -87,7 +83,7 @@ $(document).ready(function () {
                 dataClone.find('p').text(item.desc);
                 dataClone.css({ "display": "block" })
 
-                $('main').append(dataClone);
+                main.append(dataClone);
 
 
 
@@ -102,9 +98,9 @@ $(document).ready(function () {
                     dataClone.find('h2').text(item.title);
                     dataClone.find('img').attr("src", item.image_url);
                     dataClone.find('p').text(item.desc);
-                    // dataClone.css({ "display": "block" })
+                    dataClone.css({ "display": "block" })
 
-                    $('main').append(dataClone);
+                    main.append(dataClone);
 
                 }
 
